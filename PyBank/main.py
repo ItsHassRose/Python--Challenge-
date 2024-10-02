@@ -35,8 +35,8 @@ with open(file_to_load) as financial_data:
     for row in reader:
 
         # Track the total
-
-
+        total_months +=1
+        total_net += int(row[1])
         # Track the net change
 
 
@@ -50,12 +50,16 @@ with open(file_to_load) as financial_data:
 # Calculate the average net change across the months
 
 
-# Generate the output summary
-
+# Generate the output summary (I need to finish the other stuff after)
+output_summary= (
+    f"Financial Analysis\n"
+    f"----------------------------\n"
+    f"Total Months: {total_months}\n"
+    f"Total: ${total_net}\n")
 
 # Print the output
-
+print(output_summary)
 
 # Write the results to a text file
 with open(file_to_output, "w") as txt_file:
-    txt_file.write(output)
+    txt_file.write(output_summary)
